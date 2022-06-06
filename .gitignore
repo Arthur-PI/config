@@ -5,3 +5,16 @@ filezilla/
 configstore/
 qBittorrent/
 filezilla/
+.gsd-keyboard.settings-ported
+dconf/
+evolution/
+gnome-control-center/
+gnome-initial-setup-done
+gtk-3.0/
+ibus/
+monitors.xml
+monitors.xml~
+nautilus/
+pulse/
+user-dirs.dirs
+user-dirs.locale

@@ -1,6 +1,7 @@
-ZSH_THEME="spaceship"
-#ZSH_THEME="robbyrussell"
-source ~/.config/spaceship_config.sh
+
+#ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
+#source ~/.config/spaceship_config.sh
 
 plugins=(
 	colored-man-pages
