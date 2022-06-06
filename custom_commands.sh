@@ -17,3 +17,18 @@ function phpserver {
 		php -S localhost:8080
 	fi
 }
+
+function keygen {
+	if [ $# != 2 ]; then
+		echo "Usage: $0 [key_name] [email_address]"
+	else
+		ssh-keygen -t ed25519 -f ~/.ssh/$1_ed -C "$2"
+		eval "$(ssh-agent -s)"
+		if [[ `uname` == 'Darwin' ]]; then
+			echo "Host *\n\tAddKeysToAgent yes\n\tIdentityFile ~/.ssh/$1_ed" >> ~/.ssh/config
+		fi
+		ssh-add ~/.ssh/$1_ed
+		echo "The public key:"
+		cat ~/.ssh/$1_ed.pub
+	fi
+}
