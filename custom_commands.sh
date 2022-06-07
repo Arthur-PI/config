@@ -26,6 +26,8 @@ function keygen {
 		eval "$(ssh-agent -s)"
 		if [[ `uname` == 'Darwin' ]]; then
 			echo "Host *\n\tAddKeysToAgent yes\n\tIdentityFile ~/.ssh/$1_ed" >> ~/.ssh/config
+		else
+			echo "IdentityFile ~/.ssh/$1_ed" >> ~/.ssh/config
 		fi
 		ssh-add ~/.ssh/$1_ed
 		echo "The public key:"
