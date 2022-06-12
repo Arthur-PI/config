@@ -1,7 +1,10 @@
 
-#ZSH_THEME="spaceship"
-ZSH_THEME="robbyrussell"
-#source ~/.config/spaceship_config.sh
+if [ `uname` = "Darwin" ]; then
+	ZSH_THEME="spaceship"
+	source ~/.config/spaceship_config.sh
+else
+	ZSH_THEME="robbyrussell"
+fi
 
 plugins=(
 	colored-man-pages

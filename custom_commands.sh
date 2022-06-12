@@ -1,10 +1,48 @@
+function service_monitoring {
+	if [ $# != 2 ]; then
+		echo "Usage: $0 [mode] [service_name]"
+	else
+		if [ `uname` = "Darwin" ]; then
+			brew services $1 $2
+		else
+			sudo systemctl $1 $2
+		fi
+	fi
+}
+
 function start {
 	if [ $# != 1 ]; then
-		echo "Usage: start service_name"
-	elif [ $1 = "mysql" ]; then
-		brew services start mysql
+		echo "Usage: $0 [service_name]"
 	else
-		echo "Unknown service name: $1"
+		service_monitoring $0 $1
+	fi
+}
+
+function stop {
+	if [ $# != 1 ]; then
+		echo "Usage: $0 [service_name]"
+	else
+		service_monitoring $0 $1
+	fi
+}
+
+function restart {
+	if [ $# != 1 ]; then
+		echo "Usage: $0 [service_name]"
+	else
+		service_monitoring $0 $1
+	fi
+}
+
+function status {
+	if [ $# != 1 ]; then
+		echo "Usage: $0 [service_name]"
+	else
+		if [ `uname` = 'Darwin' ]; then
+			service_monitoring info $1
+		else
+			service_monitoring $0 $1
+		fi
 	fi
 }
 
@@ -34,3 +72,5 @@ function keygen {
 		cat ~/.ssh/$1_ed.pub
 	fi
 }
+
+
