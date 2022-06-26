@@ -73,4 +73,6 @@ function keygen {
 	fi
 }
 
-
+if [ `uname` != 'Darwin' ]; then
+	alias ipall="ip -br -c a"
+fi
