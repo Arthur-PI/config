@@ -1,6 +1,10 @@
 " Fundamentals "
 " ---------------------------------------------------------------------
 
+" set jump to def with tags and ctags
+" set undo dir
+" set tabf things
+
 " init autocmd
 autocmd!
 " set script encoding

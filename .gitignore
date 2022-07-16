@@ -21,3 +21,5 @@ user-dirs.locale
 zsh/.zsh_sessions
 wireshark
 yarn
+gtk-2.0
+karabiner
