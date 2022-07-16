@@ -4,7 +4,7 @@
 " set jump to def with tags and ctags
 " set undo dir
 " set tabf things
-
+"
 " init autocmd
 autocmd!
 " set script encoding
@@ -31,13 +31,12 @@ set title
 set autoindent
 set background=dark
 set nobackup
-set hlsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set mouse=a
-"let loaded_matchparen = 1
+" let loaded_matchparen = 1
 set backupskip=/tmp/*,/private/tmp/*
 
 " Avoid garbled characters in Chinese language windows OS
@@ -117,7 +116,7 @@ set nosc noru nosm
 set lazyredraw
 "set showmatch
 " How many tenths of a second to blink when matching brackets
-"set mat=2
+set mat=2
 " Ignore case when searching
 set ignorecase
 " Be smart when using tabs ;)
@@ -178,6 +177,7 @@ au BufNewFile,BufRead *.mdx set filetype=markdown
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
+autocmd FileType js setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
@@ -212,5 +212,18 @@ if exists("&termguicolors") && exists("&winblend")
   set background=dark
 endif
 
-set exrc
+if has('persistent_undo')
+    " define a path to store persistent undo files.
+    let target_path = expand('~/.config/nvim/undo')
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call system('mkdir -p ' . target_path)
+    endif
+    " point Vim to the defined undo directory.
+    let &undodir = target_path
+    " finally, enable undo persistence.
+    set undofile
+endif
 
+set exrc

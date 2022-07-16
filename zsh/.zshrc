@@ -35,13 +35,14 @@ alias python="python3"
 alias pip="pip3"
 alias vi="vim"
 alias vimconf='vi ~/.config/vimrc'
-if command -v nvim &> /dev/null; then
-	alias vimconf='vim ~/.config/nvim/init.vim'
-	alias vim="nvim"
-fi
 
 if [[ `uname` == "Darwin" ]]; then
 	export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+if command -v nvim &> /dev/null; then
+	alias vimconf='vim ~/.config/nvim/init.vim'
+	alias vim="nvim"
 fi
 

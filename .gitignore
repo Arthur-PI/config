@@ -23,3 +23,5 @@ wireshark
 yarn
 gtk-2.0
 karabiner
+tags
+nvim/undo

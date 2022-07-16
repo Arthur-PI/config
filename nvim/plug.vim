@@ -5,11 +5,9 @@ endif
 call plug#begin()
 
 	Plug 'tpope/vim-fugitive'
-	Plug 'prabirshrestha/vim-lsp'
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'lighttiger2505/deoplete-vim-lsp'
     Plug 'itchyny/lightline.vim'
 	Plug 'sheerun/vim-polyglot'
+	Plug 'ludovicchabant/vim-gutentags'
 	
 	Plug 'NLKNguyen/papercolor-theme'
 
